@@ -26,7 +26,7 @@ Teleop::Teleop()
 n.param<int>("axis_angular",axis_ang,2);//默认axes[2]接收角度
 n.param<double>("vel_linear",vlinear,10);//默认线速度1 m/s
 n.param<double>("vel_angular",vangular,10);//默认角速度1 单位rad/s
-pub = n.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel",1);//将速度发给乌龟
+pub = n.advertise<geometry_msgs::Twist>("/cmd_vel",1);//将速度发给乌龟
 sub = n.subscribe<sensor_msgs::Joy>("joy",10,&Teleop::callback,this); //订阅游戏手柄发来的数据
 }
 void Teleop::callback(const sensor_msgs::Joy::ConstPtr& Joy)  
